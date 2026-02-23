@@ -454,10 +454,12 @@ if(trail.length>1){
 }
 
  /* RED FLASH */
+
+
  if(redFlash>0){
-  ctx.fillStyle="rgba(255,0,0,0.25)";
+  ctx.fillStyle="rgba(255,0,0,0.25)"; 
   ctx.fillRect(0,0,canvas.width,canvas.height);
-  redFlash--;
+  redFlash--;//
  }
 
  requestAnimationFrame(game);
