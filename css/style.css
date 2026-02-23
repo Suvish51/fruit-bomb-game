@@ -1,0 +1,485 @@
+/* ================= RESET ================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  user-select:none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body{
+  background:black;
+  font-family:'Orbitron',sans-serif;
+  color:white;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  height:100vh;      /* fallback old phones */
+  height:100dvh;     /* modern phones */
+  overflow:hidden;
+}
+
+/* ================= TITLE ================= */
+
+h1{
+  font-size:20px;
+  margin-bottom:8px;
+}
+
+/* ================= HUD ================= */
+.hud{
+  width:94vw;
+  max-width:420px;
+  padding:1px 16px;
+  border-radius:20px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  /* Deep purple glass (canvas se match) */
+  background:linear-gradient(
+    135deg,
+    rgba(52, 0, 92, 0.85),
+    rgba(15,0,40,0.85)
+  );
+
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+
+  border:1px solid rgba(161,0,255,0.35);
+
+  box-shadow:
+    0 0 20px rgba(161,0,255,0.4),
+    inset 0 0 10px rgba(255,0,255,0.08);
+
+  margin:12px auto 0px auto;
+  transition:all 0.3s ease;
+  margin-top: 2.9px;
+}
+
+
+/* SETTINGS BUTTON */
+#settingsBtn{
+  background:linear-gradient(
+    145deg,
+    rgba(161,0,255,0.25),
+    rgba(255,0,255,0.15)
+  );
+
+  box-shadow:
+    0 0 12px #a100ff,
+    0 0 20px rgba(255,0,255,0.5);
+
+  color:#00f7ff;
+}
+
+
+/* GLASS BAR */
+.glass-bar{
+  background:rgba(161,0,255,0.12);
+
+  border:1px solid rgba(255,0,255,0.25);
+
+  box-shadow:
+    inset 0 0 12px rgba(0,0,0,0.7),
+    0 0 18px rgba(161,0,255,0.25);
+}
+
+
+/* FILL COLOR (smooth neon blend) */
+.glass-fill{
+  background:linear-gradient(
+    90deg,
+    #00f7ff,
+    #a100ff,
+    #ff00ff
+  );
+
+  box-shadow:
+    0 0 12px #00f7ff,
+    0 0 25px #ff00ff;
+}
+
+
+/* SCORE TEXT */
+.score{
+  color:#ff00ff;
+
+  text-shadow:
+    0 0 6px #ff00ff,
+    0 0 15px #a100ff;
+}
+
+
+/* PROFILE IMAGE */
+.profile-wrapper img{
+  border:3px solid #a100ff;
+
+  box-shadow:
+    0 0 12px #a100ff,
+    0 0 25px #ff00ff;
+}
+
+
+/* PROFILE RING */
+.profile-wrapper div{
+  border-top:3px solid #ff00ff;
+  border-right:3px solid #00f7ff;
+
+  filter:drop-shadow(0 0 8px #ff00ff);
+}
+
+/* ========== LEFT SETTINGS BUTTON ========== */
+
+.hud-left{
+  width:60px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+#settingsBtn{
+  width:38px;
+  height:38px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  font-size:20px;
+
+  background:linear-gradient(
+    145deg,
+    rgba(255,255,255,0.1),
+    rgba(255,255,255,0.05)
+  );
+
+  backdrop-filter:blur(10px);
+
+  box-shadow:
+    0 0 15px #00f7ff,
+    inset 0 0 8px rgba(255,255,255,0.2);
+
+  cursor:pointer;
+  transition:all 0.3s ease;
+}
+
+#settingsBtn:hover{
+  transform:scale(1.1) rotate(20deg);
+  box-shadow:
+    0 0 25px #00f7ff,
+    0 0 40px #a100ff;
+}
+
+/* ========== CENTER SECTION ========== */
+
+.hud-center{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+}
+
+/* ========== PREMIUM GLASS BAR ========== */
+
+.glass-bar{
+  width:92%;
+  height:18px;
+  border-radius:50px;
+  background:rgba(255,255,255,0.06);
+
+  backdrop-filter:blur(15px);
+
+  border:1px solid rgba(255,255,255,0.1);
+
+  position:relative;
+  overflow:hidden;
+
+  box-shadow:
+    inset 0 0 12px rgba(0,0,0,0.6),
+    0 0 20px rgba(0,247,255,0.2);
+}
+
+/* Animated Gradient Fill */
+.glass-fill{
+  height:100%;
+  border-radius:50px;
+
+  background:linear-gradient(
+    90deg,
+    #00f7ff,
+    #22c55e,
+    #a100ff
+  );
+
+  background-size:300% 300%;
+
+  box-shadow:
+    0 0 15px #00f7ff,
+    0 0 25px #a100ff;
+
+  animation:gradientMove 3s ease infinite;
+  transition:width 0.3s ease;
+}
+
+@keyframes gradientMove{
+  0%{ background-position:0% 50%; }
+  50%{ background-position:100% 50%; }
+  100%{ background-position:0% 50%; }
+}
+
+/* ========== SCORE TEXT ========== */
+
+.score{
+  font-size:17px;
+  font-weight:600;
+  letter-spacing:1px;
+  color:#00f7ff;
+
+  text-shadow:
+    0 0 8px #00f7ff,
+    0 0 20px #a100ff;
+
+  transition:all 0.3s ease;
+}
+
+.score:hover{
+  transform:scale(1.05);
+}
+
+/* ========== PROFILE ========== */
+
+.profile-wrapper{
+  width:40px;
+  height:40px;
+  position:relative;
+}
+
+.profile-wrapper img{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+
+  border:3px solid #00f7ff;
+
+  box-shadow:
+    0 0 15px #00f7ff,
+    0 0 25px #a100ff;
+
+  transition:all 0.3s ease;
+}
+
+.profile-wrapper img:hover{
+  transform:scale(1.1);
+}
+
+/* Rotating neon ring */
+.profile-wrapper div{
+  position:absolute;
+  inset:-7px;
+  border-radius:50%;
+  border:3px solid transparent;
+  border-top:3px solid #ff00ff;
+  border-right:3px solid #00f7ff;
+
+  animation:spin 4s linear infinite;
+
+  filter:drop-shadow(0 0 10px #ff00ff);
+}
+
+@keyframes spin{
+  0%{ transform:rotate(0deg); }
+  100%{ transform:rotate(360deg); }
+}
+/* ================= GAME AREA ================= */
+.game-container{
+  position:relative;
+  flex:1;
+  width:96vw;
+  max-width:420px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+
+/* ================= CANVAS ================= */
+
+canvas{
+  width:100%;
+  height:100%;
+  border-radius:22px;
+
+  background:
+    linear-gradient(
+      rgba(0,0,0,0.55),
+      rgba(0,0,0,0.75)
+    ),
+    url("../images/bg.png");
+
+  background-size:cover;
+  background-position:center;
+
+  box-shadow:
+    inset 0 0 40px rgba(0,0,0,0.8),
+    0 0 25px rgba(161,0,255,0.4);
+
+  border:2px solid rgba(255,255,255,0.08);
+
+  margin-top:4px;   /* ← bas ye add karo */
+}
+
+
+/* ================= FLOATING BUTTON ================= */
+
+.btn-start{
+  padding:16px 42px;
+  font-size:18px;
+  border-radius:50px;
+
+  background:linear-gradient(90deg,#a100ff,#ff00ff);
+  color:white;
+  border:none;
+
+  box-shadow:
+    0 0 20px #a100ff,
+    0 0 40px rgba(255,0,255,0.5);
+
+  cursor:pointer;
+  transition:0.3s ease;
+  letter-spacing:1px;
+}
+
+.btn-start:hover{
+  transform:scale(1.08);
+  box-shadow:
+    0 0 25px #ff00ff,
+    0 0 60px rgba(161,0,255,0.7);
+}
+
+/* PERFECT CENTER */
+.floating-btn{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  z-index:10;
+}
+
+
+/* ================= SETTINGS DIALOG ================= */
+
+#settingsDialog{
+  backdrop-filter:blur(10px);
+}
+
+#settingsDialog > div{
+  background:rgba(15,0,40,0.95);
+  border-radius:25px;
+  padding:25px;
+  box-shadow:0 0 35px rgba(161,0,255,0.8);
+}
+
+/* ================= SETTINGS DIALOG FULL STYLE ================= */
+
+#settingsDialog{
+  backdrop-filter:blur(10px);
+}
+
+#settingsDialog > div{
+  background:rgba(15,0,40,0.95);
+  border-radius:25px;
+  padding:25px;
+  box-shadow:0 0 35px rgba(161,0,255,0.8);
+}
+
+/* SETTINGS TITLE */
+#settingsDialog h2{
+  font-size:20px;
+  margin-bottom:15px;
+  text-align:center;
+}
+
+/* SETTINGS OPTIONS */
+#soundToggle,
+#vibrationToggle,
+#quitGame{
+  padding:14px;
+  border-radius:18px;
+  margin-bottom:12px;
+  background:rgba(120,0,255,0.25);
+  transition:0.3s;
+  cursor:pointer;
+  font-size:15px;
+  text-align:center;
+}
+
+#soundToggle:hover,
+#vibrationToggle:hover,
+#quitGame:hover{
+  background:rgba(161,0,255,0.45);
+  transform:scale(1.05);
+}
+
+/* CLOSE BUTTON */
+#closeSettings{
+  padding:12px 28px;
+  border-radius:18px;
+  background:#ff004c;
+  font-size:15px;
+  box-shadow:0 0 15px #ff004c;
+  cursor:pointer;
+  transition:0.3s;
+  border:none;
+  color:white;
+}
+
+#closeSettings:hover{
+  transform:scale(1.05);
+}
+
+
+/* ================= GAME OVER ================= */
+
+#gameOverUI{
+  backdrop-filter:blur(10px);
+}
+
+/* ===== LOADING SCREEN ===== */
+#loadingScreen{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:black;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
+
+.loaderBox{
+  text-align:center;
+  color:white;
+  font-family:Orbitron;
+}
+
+.spinner{
+  width:60px;
+  height:60px;
+  border:6px solid rgba(255,255,255,0.2);
+  border-top:6px solid lime;
+  border-radius:50%;
+  animation:spin 1s linear infinite;
+  margin:auto;
+  margin-bottom:15px;
+}
+
+@keyframes spin{
+  to{ transform:rotate(360deg); }
+}

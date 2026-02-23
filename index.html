@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fruit Bomb Pro</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+ 
+
+<!-- ================= HUD ================= -->
+<div class="hud">
+
+  <div class="hud-left">
+    <div id="settingsBtn">⚙</div>
+  </div>
+
+  <div class="hud-center">
+    <div class="glass-bar">
+      <div id="timerBar" class="glass-fill" style="width:100%"></div>
+    </div>
+
+    <div id="score" class="score">
+      0000
+    </div>
+
+    <div id="highScore" style="display:none;"></div>
+  </div>
+
+  <div class="profile-wrapper">
+    <img src="images/fruits.gif">
+    <div></div>
+  </div>
+
+</div>
+
+<!-- ===== LOADING SCREEN ===== -->
+<div id="loadingScreen">
+  <div class="loaderBox">
+    <div class="spinner"></div>
+    <p>Loading...</p>
+  </div>
+</div>
+
+<!-- ================= GAME AREA ================= -->
+<div class="game-container">
+
+  <canvas id="game"></canvas>
+
+  <button id="mainBtn" class="btn-start floating-btn">
+    ▶ START
+  </button>
+
+</div>
+
+<!-- ================= AUDIO ================= -->
+<audio id="sliceSound" src="musics/slice.mp3"></audio>
+<audio id="bombSound" src="musics/bomb.mp3"></audio>
+<audio id="bmgSound" src="musics/bmg.mp3" loop></audio>
+
+<!-- ================= GAME OVER ================= -->
+<div id="gameOverUI"
+     class="fixed inset-0 bg-black/80 hidden
+            flex items-center justify-center z-50">
+
+  <div class="bg-[#0a0014] w-80 max-w-[90%] p-6 rounded-3xl
+              shadow-[0_0_40px_#ff004c] text-center
+              border border-red-500/40">
+
+    <h2 class="text-2xl font-bold text-red-400 mb-3">
+      ⏰ TIME UP!
+    </h2>
+
+    <p id="finalScore"
+       class="text-cyan-400 text-lg mb-5">
+    </p>
+
+    <button onclick="location.reload()"
+            class="bg-gradient-to-r from-red-500 to-pink-500
+                   text-white font-semibold
+                   px-6 py-2 rounded-xl">
+      🔄 RESTART
+    </button>
+
+  </div>
+</div>
+
+<!-- ================= SETTINGS DIALOG ================= -->
+<div id="settingsDialog"
+     class="fixed inset-0 bg-black/80 hidden
+            flex items-center justify-center z-50">
+
+  <div class="w-80 max-w-[90%]">
+
+    <h2 class="text-center text-cyan-400 text-xl mb-4 font-bold">
+      SETTINGS
+    </h2>
+
+    <div id="soundToggle">🔊 Sound: OFF</div>
+    <div id="vibrationToggle">📳 Vibration: on</div>
+    <div id="quitGame">🏠 Quit / Home</div>
+
+    <div class="text-center mt-4">
+      <button id="closeSettings">Close</button>
+    </div>
+
+  </div>
+</div>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
