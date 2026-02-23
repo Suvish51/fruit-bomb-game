@@ -341,6 +341,7 @@ function game(timestamp){
   spawnTimer++;
   updateDifficulty();
   updateLevel();
+  // new push
 
   let spawnRate=35-level*2*difficulty;
   if(spawnRate<12) spawnRate=12;
